@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="root">
+    <div style="display: flex; flex-direction: column; padding: 100px;">
+        <h1 style="font-weight: bold;">이메일 인증코드</h1>
+        <div style="display: flex; flex-direction: column;">
+            <span>DoctorForU를 이용해 주셔서 감사합니다. </span>
+            <span>아래의 인증코드를 입력하시면 가입이 정상적으로 완료됩니다.</span>
+        </div>
+        <div style="margin-top: 20px; padding: 20px; width: 800px; background-color: rgb(244, 246, 249);">
+            <span style="font-weight: bold; font-size: 30px;" th:text="${verificationCode}"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+server:
+  port: 9002
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${application.spring.mail.username}
+    password: ${application.spring.mail.password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    templates:
+      path: templates/
+
+  jpa:
+    database: mysql
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update # (1) 스키마 생성
+    show-sql: true # (2) SQL 쿼리 출력
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true # (3) SQL pretty print
+        cache.use_query_cache: false # 5월 30일 추가
+        cache.use_second_level_cache: false # 5월 30일 추가
+        region.factory_class: 'org.hibernate.cache.internal.NoCachingRegionFactory' # 5월 30일 추가
+  #    properties:
+  #      hibernate:
+  #        dialect: org.hibernate.dialect.MariaDBDialect
+  #        format_sql: true
+  #        use_sql_comments: true
+
+  datasource:
+    #    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${application.spring.datasource.url}
+    username: ${application.spring.datasource.username}
+    password: ${application.spring.datasource.password}
+
+jwt:
+  secret: ${application.jwt.secret}
+  refresh-token-expiration-seconds: 90
+  redis:
+    host: localhost
+    port: 6379
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
