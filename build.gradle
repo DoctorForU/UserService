@@ -26,6 +26,11 @@ ext {
 	set('springCloudVersion', "2023.0.1")
 }
 
+bootJar {
+    archiveBaseName = 'user-service'  // 실행 가능한 JAR 파일 이름 설정
+    archiveVersion = ''                // 버전 정보 제거
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
