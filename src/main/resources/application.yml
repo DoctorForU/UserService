@@ -52,8 +52,8 @@ jwt:
 
 eureka:
   client:
-    fetch-registry: true
-    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://eureka-container:8761/eureka/
 
 
 # 모니터링
